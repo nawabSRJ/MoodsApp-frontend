@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="button-style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/favlogo2.png" style="border-radius: 50%;">
+    <title>Moods Home Page</title>
+</head>
+
+<body>
+    <div id="sticky-div">
+        <figure><img src="./assets/logo1.png" width="150px" height="55px"></figure>
+        <fieldset id="post-detail">
+            <legend>Set the Mood</legend>
+            <form id="post-form">
+                <label for="name">Name : </label>
+                <input type="text" id="name-entry" placeholder="Name to display for Post"><br><br>
+                <label for="post">Post : </label>
+                <input style="width: 70%;" type="text" id="post-entry" placeholder="What's on your mind?">
+                <button type="button" id="post-btn" onclick="submitPost()">Post</button>
+            </form>
+        </fieldset>
+    </div>
+    <br><br>
+    <div class="post-container" id="post-container">
+        <!-- <fieldset class="post-box">
+            <div>
+                <h2 id="person-name">Srajan Saxena</h2>
+                <div id="person-post">Hello , this is my first Post, i am putting a lot content here. So please don't worry!!</div>
+            </div>
+        </fieldset><br> -->
+    </div>
+</body>
+<script src="app.js"></script>
+
+</html>
