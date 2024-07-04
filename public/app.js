@@ -13,7 +13,7 @@ async function fetchPosts() {
             const postBox = document.createElement('div');
             postBox.className = 'post-box';
             postBox.innerHTML = `
-            <div class="container sm:boder-4 sm:border-rose-500 bg-stone-100 w-[100%] py-2 px-4 rounded-xl ">
+            <div class="container sm:boder-4 sm:border-rose-500 bg-stone-100 w-[100%] py-2 px-4 rounded-xl mb-3">
                 <h2 class="person-name sm:text-2xl text-1xl text-black">${post.name}</h2>
                 <div class="person-post sm:text-[1.5vw] text-zinc-800">${post.content}</div>
             </div>
