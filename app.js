@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchPosts() {
     try {
-        const response = await fetch('https://moodsapp-backend.onrender.com/');
+        const response = await fetch('https://moodsapp-backend.onrender.com/posts'); // Correct endpoint for fetching posts
         const posts = await response.json();
         const postContainer = document.getElementById('post-container');
         postContainer.innerHTML = ''; // Clear existing posts
@@ -40,7 +40,7 @@ async function submitPost() {
     };
 
     try {
-        const response = await fetch('https://moodsapp-backend.onrender.com/', {
+        const response = await fetch('https://moodsapp-backend.onrender.com/posts', { // Correct endpoint for creating posts
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -58,3 +58,9 @@ async function submitPost() {
         console.error('Error submitting post:', error);
     }
 }
+
+// Add an event listener to the post button to call submitPost()
+document.getElementById('post-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    submitPost();
+});
