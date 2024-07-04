@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchPosts() {
     try {
-        const response = await fetch('https://moodsapp-backend.onrender.com/posts');
+        const response = await fetch('https://moodsapp-backend.onrender.com/');
         const posts = await response.json();
         const postContainer = document.getElementById('post-container');
         postContainer.innerHTML = ''; // Clear existing posts
@@ -40,7 +40,7 @@ async function submitPost() {
     };
 
     try {
-        const response = await fetch('https://moodsapp-backend.onrender.com/posts', {
+        const response = await fetch('https://moodsapp-backend.onrender.com/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
