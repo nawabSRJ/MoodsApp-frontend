@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="output.css">
 
-    <script src="https://cdn.tailwindcss.com"></script> <!--Tailwind CDN-->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> Tailwind CDN -->
     <link rel="icon" type="image/x-icon" href="./assets/favlogo2.png" style="border-radius: 50%;">
     <title>Moods Home Page</title>
 </head>
 <style>
-    .hidden{
+    .hid{
         display: hidden;
         
     }
@@ -25,7 +25,7 @@
     <div class="navbar bg-white-300">
         <center><a href="/" class="sm:text-4xl text-2xl text-indigo-700 text-center mx-auto">Moods</a></center>
     </div>
-    <div id="add-post-box" class="hidden post-form flex flex-col p-5 mx-auto bg-green-200 w-[50%] rounded-xl">
+    <div id="add-post-box" class="hid post-form flex flex-col p-5 mx-auto bg-green-200 w-[50%] rounded-xl">
         <h2 class="text-center sm:text-3xl text-2xl mb-5 title-font">Enter Details</h2>
         <form class="post-detail mx-5">
             <label class="text-[1.4vw]" for="name">Name : </label><br>
@@ -95,7 +95,7 @@
 <script>
     var box = document.getElementById('add-post-box');
     function addPostBox(){
-        box.classList.remove('hidden')
+        box.classList.remove('hid')
     }
   
 </script>
