@@ -4,36 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="button-style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <script src="https://cdn.tailwindcss.com"></script> <!--Tailwind CDN-->
     <link rel="icon" type="image/x-icon" href="./assets/favlogo2.png" style="border-radius: 50%;">
     <title>Moods Home Page</title>
 </head>
-
+<style>
+    .hidden{
+        display: hidden;
+        
+    }
+    .post-form{
+        position: fixed;
+        top: 20%;
+        left:25%;
+    }
+</style>
 <body>
-    <div id="sticky-div">
-        <figure><img src="./assets/logo1.png" width="150px" height="55px"></figure>
-        <fieldset id="post-detail">
-            <legend>Set the Mood</legend>
-            <form id="post-form">
-                <label for="name">Name : </label>
-                <input type="text" id="name-entry" placeholder="Name to display for Post"><br><br>
-                <label for="post">Post : </label>
-                <input style="width: 70%;" type="text" id="post-entry" placeholder="What's on your mind?">
-                <button type="button" id="post-btn" onclick="submitPost()">Post</button>
-            </form>
-        </fieldset>
+    <div class="navbar bg-white-300">
+        <center><a href="/" class="sm:text-4xl text-2xl text-indigo-700 text-center mx-auto">Moods</a></center>
     </div>
-    <br><br>
-    <div class="post-container" id="post-container">
-        <!-- <fieldset class="post-box">
-            <div>
-                <h2 id="person-name">Srajan Saxena</h2>
-                <div id="person-post">Hello , this is my first Post, i am putting a lot content here. So please don't worry!!</div>
+    <div id="add-post-box" class="hidden post-form flex flex-col p-5 mx-auto bg-green-200 w-[50%] rounded-xl">
+        <h2 class="text-center sm:text-3xl text-2xl mb-5 title-font">Enter Details</h2>
+        <form class="post-detail mx-5">
+            <label class="text-[1.4vw]" for="name">Name : </label><br>
+            <input class="text-[1.5vw] text-left px-2 py-2 w-[45%] boder-4 rounded-md" type="text" id="name-entry" placeholder="Name to display for Post"><br><br>
+            <label class="text-[1.4vw]" for="post">Post : </label><br>
+            <input class="text-[1.5vw] text-left px-2 py-2 w-[90%] boder-4 rounded-md"  type="text" placeholder="What's on your mind?"><br>
+            <button id="append-post-btn" class="bg-rose-300 my-3 p-[10px] rounded-md w-[60px]" type="button" id="post-btn" onclick="submitPost()">Post</button>
+        </form>
+    </div>
+
+    <!-- todo - main starts -->
+    <div class="main flex sm:flex-row flex-col">
+        <div class="sidebar bg-white-200 h-[100%] sm:w-[20%] w-[100%]">
+            <div class="addPostbox mt-10 mx-[10%]">
+                
+                <a href=""><button class="sm:text-2xl text-1xl mx-auto text-center p-4 rounded-[30px] bg-indigo-400 hover:bg-white sm:w-[15vw] w-[100%] mb-3 border-2 border-indigo-400">
+                    🔖 Bookmark
+                </button></a>
+
+                <a href="https://news-pb.netlify.app/" target="_blank"><button class="sm:text-2xl text-1xl mx-auto text-center p-4 rounded-[30px] bg-indigo-400 hover:bg-white sm:w-[15vw] w-[100%] mb-3 border-2 border-indigo-400">
+                    📰 News
+                </button></a>
+
+                <a href="#"><button onclick="addPostBox()" class="sm:text-2xl text-1xl mx-auto text-center p-4 rounded-[30px] bg-indigo-400 hover:bg-white sm:w-[15vw] w-[100%] mb-3 border-2 border-indigo-400">
+                    ➕ Add Post
+                </button></a>
+
+                <a href="https://github.com/nawabSRJ" target="_blank"><button class="sm:text-2xl text-1xl mx-auto text-center p-4 rounded-[30px] bg-indigo-400 hover:bg-white sm:w-[15vw] w-[100%] mb-3 border-2 border-indigo-400">
+                    😺 Github
+                </button></a>
             </div>
-        </fieldset><br> -->
-    </div>
+        </div>
+        <!-- <div id="sticky-div">
+            <figure><img src="./assets/logo1.png" width="150px" height="55px"></figure>
+            <fieldset id="post-detail">
+                <legend>Set the Mood</legend>
+                <form id="post-form">
+                    <label for="name">Name : </label>
+                    <input type="text" id="name-entry" placeholder="Name to display for Post"><br><br>
+                    <label for="post">Post : </label>
+                    <input style="width: 70%;" type="text" id="post-entry" placeholder="What's on your mind?">
+                    <button type="button" id="post-btn" onclick="submitPost()">Post</button>
+                </form>
+            </fieldset>
+        </div> -->
+        <br><br>
+        <div class="post-container container border-slate-500 border-2 mx-0 sm:w-[55%] w-[100%] sm:px-2 py-2 border-t-white border-b-white" id="post-container">
+            <div class="post-box container sm:boder-4 sm:border-rose-500 bg-stone-100 w-[100%] py-2 px-4 rounded-xl ">
+                <h2 class="person-name sm:text-2xl text-1xl text-black">${post.name}</h2>
+                <div class="person-post sm:text-[1.5vw] text-zinc-800">${post.content}</div>
+            </div>
+            
+        </div> <!--post container ends here-->
+
+        <div class="rightbar bg-white-200 h-[100%] w-[25%]">
+            <div class="extra mt-10 mx-[10%]">
+                <h3 class="text-2xl p-3 hover:text-indigo-700 cursor-pointer ">#Trending</h3>
+                <h3 class="text-2xl p-3 hover:text-indigo-700 cursor-pointer ">#Top Categories</h3>
+                <h3 class="text-2xl p-3 hover:text-indigo-700 cursor-pointer ">#Extras Here</h3>
+                
+            </div>
+        </div>
+    </div> <!--main div ends-->
+
 </body>
 <script src="app.js"></script>
-
+<script>
+    var box = document.getElementById('add-post-box');
+    function addPostBox(){
+        box.classList.remove('hidden')
+    }
+  
+</script>
 </html>

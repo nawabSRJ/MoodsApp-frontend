@@ -13,10 +13,8 @@ async function fetchPosts() {
             const postBox = document.createElement('div');
             postBox.className = 'post-box';
             postBox.innerHTML = `
-            <fieldset>
-                <h2 id="person-name">${post.name}</h2>
-                <div id="person-post">${post.content}</div>
-            </fieldset>
+                <h2 class="person-name sm:text-2xl text-1xl text-black">${post.name}</h2>
+                <div class="person-post sm:text-[1.5vw] text-zinc-800">${post.content}</div>
             `;
             postContainer.appendChild(postBox);
         });
@@ -26,9 +24,10 @@ async function fetchPosts() {
 }
 
 async function submitPost() {
+    var box = document.getElementById('add-post-box');
+    box.classList.add('hidden') // remove the box
     const nameEntry = document.getElementById('name-entry').value;
     const postEntry = document.getElementById('post-entry').value;
-
     if (!nameEntry || !postEntry) {
         alert('Name and content are required');
         return;
