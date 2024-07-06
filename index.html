@@ -29,8 +29,12 @@
         <h2 class="text-center sm:text-3xl text-2xl mb-5 title-font">Enter Details</h2>
         <form class="post-detail mx-5">
             <label class="text-[1.4vw]" for="name">Name : </label><br>
-            <input class="text-[1.5vw] text-left px-2 py-2 w-[45%] boder-4 rounded-md" type="text" id="name-entry" placeholder="Name to display for Post"><br><br>
-            <label class="text-[1.4vw]" for="post">Post : </label><br>
+            <input class="text-[1.5vw] text-left px-2 py-2 w-[45%] boder-4 rounded-md" type="text" id="name-entry" placeholder="Name to display for Post">
+            <button class="bg-rose-300 my-3 p-[10px] rounded-md w-[30px] mx-2" id="setName" onclick="onSet()">Set</button>
+            <button class="bg-rose-300 my-3 p-[10px] rounded-md w-[30px] mx-2" id="unsetName" onclick="onUnSet()">Unset</button>
+            <br>
+
+            <label class="text-[1.4vw]" for="post">Your Post : </label><br>
             <input class="text-[1.5vw] text-left px-2 py-2 w-[90%] boder-4 rounded-md"  type="text" id="post-entry" placeholder="What's on your mind?"><br>
             <button id="append-post-btn" class="bg-rose-300 my-3 p-[10px] rounded-md w-[60px]" type="button" id="post-btn" onclick="submitPost()">Post</button>
         </form>
@@ -92,6 +96,7 @@
 
 </body>
 <script src="./public/app.js"></script>
+<script src="./public/formControl.js"></script>
 <script>
     var box = document.getElementById('add-post-box');
     function addPostBox(){

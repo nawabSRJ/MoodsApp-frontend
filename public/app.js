@@ -27,7 +27,7 @@ async function fetchPosts() {
 
 async function submitPost() {
     var box = document.getElementById('add-post-box');
-    box.classList.add('hidden') // remove the box
+    box.classList.add('hid') // remove the box
     const nameEntry = document.getElementById('name-entry').value;
     const postEntry = document.getElementById('post-entry').value;
     if (!nameEntry || !postEntry) {
@@ -58,6 +58,7 @@ async function submitPost() {
     } catch (error) {
         console.error('Error submitting post:', error);
     }
+    
 }
 
 // Add an event listener to the post button to call submitPost()
